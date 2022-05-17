@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cd ~/git/github
+git clone git@github.com:dotnet/sdk.git
+cd sdk
+git checkout v3.1.419
+./build.sh
+
+tee ~/.zshrc  <<'EOF'
+
+# switch arch path
+arch=`uname -m`
+if [ "$arch" = "x86_64" ]; then
+  # dotnet core 3.1 is not supported by arm
+  export PATH="/install-directory-full-path/git/github/sdk/.dotnet:$PATH"
+  export PATH="/usr/local/bin/:$PATH"
+  export PATH="$PATH:/opt/homebrew/bin"
+else
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+EOF
