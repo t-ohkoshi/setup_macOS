@@ -1,0 +1,24 @@
+{
+    "files.encoding": "utf8",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Monokai",
+    "workbench.editor.enablePreview": false,
+    "files.trimTrailingWhitespace": true,
+    "files.autoGuessEncoding": true,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.largeFileOptimizations": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "window.zoomLevel": 1,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
+    "editor.detectIndentation": false,
+    "[javascript]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+    },
+    "[csharp]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+}
