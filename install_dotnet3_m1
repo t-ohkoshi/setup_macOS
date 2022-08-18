@@ -6,7 +6,7 @@ cd sdk
 git checkout v3.1.419
 ./build.sh
 
-tee ~/.zshrc  <<'EOF'
+tee -a ~/.zshrc  <<EOF
 
 # switch arch path
 arch=`uname -m`
