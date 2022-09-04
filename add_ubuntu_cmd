@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tee -a ~/.zshrc  <<EOF
+
+# check usb status
+alias lsusb=“system_profiler SPUSBDataType”
+EOF
