@@ -65,4 +65,8 @@ alias lsusb="system_profiler SPUSBDataType"
 
 # remove branch
 alias remove-branch="git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d"
+
+# check ip address v4
+alias checkip="ifconfig | grep 192"
+
 EOF
