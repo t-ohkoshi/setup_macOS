@@ -1,0 +1,3 @@
+#!/bin/bash
+brew install peco ag ffmpeg gcc atop tmux imagemagick postgresql
+brew install --cask clipy visual-studio-code google-chrome macwinzipper
