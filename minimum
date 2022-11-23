@@ -1,5 +1,5 @@
 #!/bin/bash
-brew install -y vim wget curl
+brew install -y vim wget curl git zsh
 
 # set up vimrc
 tee ~/.vimrc  <<EOF
