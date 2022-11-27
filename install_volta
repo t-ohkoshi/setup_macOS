@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# https://docs.volta.sh/guide/getting-started
+
+curl https://get.volta.sh | bash
+
+# set up zshrc
+tee -a ~/.zshrc  <<'EOF'
+
+  # volta(node)
+  export VOLTA_HOME="$HOME/.volta"
+  export PATH="$VOLTA_HOME/bin:$PATH"
+EOF
