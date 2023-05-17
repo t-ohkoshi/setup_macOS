@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Get the current branch name
+branch=$(git symbolic-ref --short HEAD)
+
+# Define the allowed branch pattern
+allowed_branch_pattern="^(main|master)/.*$"
+
+# Check if the branch name matches the pattern
+if ! [[ "$branch" =~ $allowed_branch_pattern ]]; then
+    while true; do
+        read -p "Continue? (y/n): " input
+        
+        case $input in
+            [Yy])
+                # Continue working
+                echo "Continuing..."
+                # Add your desired code here
+                ;;
+            [Nn])
+                echo "Do you want to continue working on the main/master branch?"
+                exit 0
+                ;;
+            *)
+                # Invalid input
+                echo "Invalid input. Please enter 'y' to continue or 'n' to exit."
+                ;;
+        esac
+    done
+fi
+
+# If the branch name is valid, allow the commit
+exit 0
