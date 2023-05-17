@@ -8,25 +8,23 @@ disallowed_branches=("main" "master")
 
 # Check if the branch name is in the disallowed list
 for disallowed_branch in "${disallowed_branches[@]}"; do
-    if [[ "$branch" == "$disallowed_branch" ]]; then
-        read -p "Continue? (y/n): " input
-        case $input in
-            [Yy])
-                # Continue working
-                echo "Continuing..."
-                # Add your desired code here
-            ;;
-            [Nn])
-                echo "Do you want to continue working on the main/master branch?"
-                exit 0
-            ;;
-            *)
-                # Invalid input
-                echo "Invalid input. Please enter 'y' to continue or 'n' to exit."
-            ;;
-        esac
+  if [[ "$branch" == "$disallowed_branch" ]]; then
+    echo "---Warning---"
+    echo "You are committing on the '$branch' branch."
+    echo "Are you sure you want to continue?"
+    echo "(Enter 'yes' or 'no')"
+
+    # Redirect standard input to read from the terminal
+    exec </dev/tty
+
+    read userInput
+    if [[ "$userInput" != "yes" ]]; then
+      echo "Commit aborted. Please confirm before committing on the '$branch' branch."
+      exit 1
     fi
+    break
+  fi
 done
 
-# If the branch name is valid, allow the commit
+# If the branch name is valid or user confirmed, allow the commit
 exit 0
