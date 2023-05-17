@@ -3,11 +3,12 @@
 # Get the current branch name
 branch=$(git symbolic-ref --short HEAD)
 
-# Define the allowed branch pattern
-allowed_branch_pattern="^(main|master)/.*$"
+# Define the disallowed branch names
+disallowed_branches=("main" "master")
 
-# Check if the branch name matches the pattern
-if ! [[ "$branch" =~ $allowed_branch_pattern ]]; then
+# Check if the branch name is in the disallowed list
+for disallowed_branch in "${disallowed_branches[@]}"; do
+  if [[ "$branch" == "$disallowed_branch" ]]; then
     while true; do
         read -p "Continue? (y/n): " input
         
@@ -27,7 +28,9 @@ if ! [[ "$branch" =~ $allowed_branch_pattern ]]; then
                 ;;
         esac
     done
-fi
+  fi
+done
+
 
 # If the branch name is valid, allow the commit
 exit 0
