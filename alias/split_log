@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Check if the gsplit command is installed
+if ! command -v gsplit >/dev/null; then
+  echo "Error: coreutils is not installed."
+  exit 1
+fi
+
+# Get the split file name from the command line argument
+target=$1
+export=${target}.log.
+
+# split log file
+gsplit --additional-suffix=.log -l 50000 "$target" "$export"
