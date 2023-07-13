@@ -12,6 +12,7 @@ target=${base//'HEIC'/}png
 
 # Convert the HEIC image to PNG
 convert "$base" "$target"
+convert "$target" -resize 30% "$target"
 
 # Print a success message
 echo "The HEIC image has been successfully converted to PNG."
